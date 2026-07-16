@@ -17,10 +17,14 @@ jobs:
           node-version: 24
           
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
         
+    
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: 0
         
       - name: Run Playwright tests
         run: npx playwright test
